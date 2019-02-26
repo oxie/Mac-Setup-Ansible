@@ -1,0 +1,62 @@
+---
+# list of applications to install
+
+# homebrew applications
+applications:
+  - ansible
+  - autoconf
+  - azure-cli
+  - bash-completion
+  - consul
+  - curl
+  - git
+  - httpie
+  - iperf
+  - kubectl
+  - kubernetes-helm
+  - molecule
+  - nmap
+  - nodejs
+  - packer
+  - terraform
+  - tmux
+  - tree
+  - vault
+  - vim
+  - wget
+  - yarn
+
+# cask applications
+cask_applications:
+  - atom
+  - caffeine
+  - docker
+  - filezilla
+  - firefox
+  - google-chrome
+  - gpg-suite
+  - iterm2
+  - kap
+  - minikube
+  - onyx
+  - pycharm
+  - slack
+  - skype
+  - spotify
+  - sublime-text
+  - vagrant
+  - virtualbox
+  - visual-studio-code
+  - vlc
+
+# pip2 modules
+pip2_modules:
+  - ansible
+  - azure==2.0.0rc5
+  - dopy
+  - packaging
+  - redis
+
+# pip3 modules
+pip3_modules:
+  - awscli

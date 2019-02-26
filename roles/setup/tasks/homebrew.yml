@@ -1,0 +1,27 @@
+---
+# Install homebrew, cask and pip
+- name: Install homebrew
+  shell: 'yes | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"'
+  args:
+    creates: /usr/local/bin/brew
+
+- name: Ensure homebrew is updated
+  homebrew:
+    state: latest
+    update_homebrew: yes
+
+- name: Install cask
+  homebrew_tap:
+    tap: 'caskroom/cask'
+
+- name: Verify if pip is installed
+  stat:
+    path: /usr/local/bin/pip
+  register: pip
+
+- name: Install pip
+  become: true
+  become_method: sudo
+  shell: easy_install pip
+  when: pip.stat.exists != True
+

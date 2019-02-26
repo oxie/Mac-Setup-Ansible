@@ -1,0 +1,30 @@
+# Make sure homebrew is installed before installing any application
+- name: Install homebrew
+  include_tasks: homebrew.yml
+
+- name: Install homebrew apps
+  homebrew:
+    name: '{{ item }}'
+    state: latest
+  with_items: '{{ applications }}'
+
+- name: Install homebrew cask apps
+  homebrew_cask:
+    name: '{{ item }}'
+    state: installed 
+  with_items: '{{ cask_applications }}'
+
+- name: Install pip2 modules
+  pip:
+    name: '{{ item }}'
+    state: present
+    extra_args: --user
+  with_items: '{{ pip2_modules }}'
+
+- name: Install pip3 modules
+  pip:
+    name: '{{ item }}'
+    state: present
+    extra_args: --user
+    executable: pip3
+  with_items: '{{ pip3_modules }}'
